@@ -123,7 +123,8 @@ public class LauncherView extends View {
     final SimpleDateFormat dateFmt;
     final String[] hint, hintKb, hintSetup, greets;
     final String[][] kbKeys = new String[3][];
-    final String sAll, sChoose, sChooseHint, sSearch, sNoApps, sDone, sOpening, sErrOpen, sErrUninstall, sUninstalled, sPickOne, sMaxFive, sSysTitle, sSysBody, sOk, sHide, sShow, sUninstall, sDlgBody, sShowHidden, sHideAgain, sHiddenToast, sUnhiddenToast;
+    final String sAll, sChoose, sChooseHint, sSearch, sNoApps, sDone, sOpening, sErrOpen, sErrUninstall, sUninstalled, sPickOne, sMaxFive, sSysTitle, sSysBody, sOk, sHide, sShow, sUninstall, sDlgBody, sShowHidden, sHideAgain, sHiddenToast, sUnhiddenToast, sGuardTitle, sGuardOn, sGuardOff, sTurnOff, sTurnOn, sGuardToastOn, sGuardToastOff;
+    final App guardApp = new App();
     final java.util.HashSet<String> hidden = new java.util.HashSet<>();
     boolean showHidden, started;
     int dlgSel;
@@ -155,6 +156,9 @@ public class LauncherView extends View {
         sSysTitle = a.getString(R.string.sys_title); sSysBody = a.getString(R.string.sys_body); sOk = a.getString(R.string.ok);
         sHide = a.getString(R.string.hide); sShow = a.getString(R.string.show); sUninstall = a.getString(R.string.uninstall); sDlgBody = a.getString(R.string.dlg_body);
         sShowHidden = a.getString(R.string.show_hidden); sHideAgain = a.getString(R.string.hide_again); sHiddenToast = a.getString(R.string.hidden_toast); sUnhiddenToast = a.getString(R.string.unhidden_toast);
+        sGuardTitle = a.getString(R.string.guard_title); sGuardOn = a.getString(R.string.guard_on); sGuardOff = a.getString(R.string.guard_off);
+        sTurnOff = a.getString(R.string.turn_off); sTurnOn = a.getString(R.string.turn_on); sGuardToastOn = a.getString(R.string.guard_toast_on); sGuardToastOff = a.getString(R.string.guard_toast_off);
+        guardApp.pkg = "guard"; guardApp.label = "";
         dateFmt = new SimpleDateFormat(android.text.format.DateFormat.getBestDateTimePattern(Locale.getDefault(), "EEEEdMMMM"), Locale.getDefault());
         pm = a.getPackageManager();
         setBackgroundColor(Color.BLACK);
@@ -450,14 +454,20 @@ public class LauncherView extends View {
         catch (Exception e) { busy = false; fadeOvl(0); showToast(String.format(sErrOpen, a.label)); }
     }
 
+    boolean guardOn() { return prefs.getBoolean("guard", true); }
+
     void askRemove() {
-        App a = current();
+        App a = !grid && idx == main.size() ? guardApp : current();
         if (a == null) return;
         dlg = a; dlgSel = 0; invalidate();
     }
 
     void dlgExec() {
         App a = dlg; dlg = null;
+        if (a == guardApp) {
+            if (dlgSel == 0) { boolean on = !guardOn(); prefs.edit().putBoolean("guard", on).apply(); showToast(on ? sGuardToastOn : sGuardToastOff); }
+            invalidate(); return;
+        }
         if (dlgSel == 0) {
             boolean was = hidden.remove(a.pkg);
             if (!was) hidden.add(a.pkg);
@@ -841,9 +851,10 @@ public class LauncherView extends View {
         float top = (1080 - 359) / 2f;
         r.set(480, top, 1440, top + 359);
         shadowRect(c, r, 24, 0xFF1B1B20, 80, 40, .6f);
-        txt(c, dlg.system ? String.format(sSysTitle, dlg.label) : dlg.label, 544, top + 56, pDh, Paint.Align.LEFT);
-        txt(c, dlg.system ? sSysBody : sDlgBody, 544, top + 56 + 60 + 16, pDp, Paint.Align.LEFT);
-        String[] lb = {hidden.contains(dlg.pkg) ? sShow : sHide, dlg.system ? sOk : sUninstall};
+        boolean g = dlg == guardApp;
+        txt(c, g ? sGuardTitle : dlg.system ? String.format(sSysTitle, dlg.label) : dlg.label, 544, top + 56, pDh, Paint.Align.LEFT);
+        txt(c, g ? (guardOn() ? sGuardOn : sGuardOff) : dlg.system ? sSysBody : sDlgBody, 544, top + 56 + 60 + 16, pDp, Paint.Align.LEFT);
+        String[] lb = g ? new String[]{guardOn() ? sTurnOff : sTurnOn, sOk} : new String[]{hidden.contains(dlg.pkg) ? sShow : sHide, dlg.system ? sOk : sUninstall};
         for (int i = 0; i < 2; i++) {
             RectF b = btn; b.set(544 + i * 432, top + 359 - 48 - 88, 944 + i * 432, top + 359 - 48);
             fill.setColor(0xFF32323A); c.drawRoundRect(b, 16, 16, fill);

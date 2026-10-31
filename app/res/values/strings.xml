@@ -31,6 +31,13 @@
     <string name="hide_again">Hide them again</string>
     <string name="hidden_toast">%1$s hidden</string>
     <string name="unhidden_toast">%1$s is visible again</string>
+    <string name="guard_title">Home button</string>
+    <string name="guard_on">Quiet Launcher replaces Amazon\'s home.</string>
+    <string name="guard_off">Amazon\'s home stays. Reopen Quiet from your apps.</string>
+    <string name="turn_off">Turn off</string>
+    <string name="turn_on">Turn on</string>
+    <string name="guard_toast_on">Home button: Quiet Launcher</string>
+    <string name="guard_toast_off">Home button: Amazon</string>
     <string-array name="hint">
         <item>Back</item><item>" returns home  ·  "</item><item>Menu</item><item>" options  ·  "</item><item>Play</item><item>" picks apps"</item>
     </string-array>

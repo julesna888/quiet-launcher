@@ -31,6 +31,13 @@
     <string name="hide_again">Nascondile di nuovo</string>
     <string name="hidden_toast">%1$s nascosta</string>
     <string name="unhidden_toast">%1$s di nuovo visibile</string>
+    <string name="guard_title">Tasto Home</string>
+    <string name="guard_on">Quiet Launcher sostituisce la home Amazon.</string>
+    <string name="guard_off">Resta la home Amazon. Riapri Quiet dalle app.</string>
+    <string name="turn_off">Disattiva</string>
+    <string name="turn_on">Attiva</string>
+    <string name="guard_toast_on">Tasto Home: Quiet Launcher</string>
+    <string name="guard_toast_off">Tasto Home: Amazon</string>
     <string-array name="hint">
         <item>Indietro</item><item>" torna alla home  ·  "</item><item>Menu</item><item>" opzioni  ·  "</item><item>Play</item><item>" scegli le app"</item>
     </string-array>

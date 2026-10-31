@@ -34,6 +34,7 @@ If you try it on another model, please open an issue with what you saw.
 - **Last used app** is selected when you come back to the home.
 - **Search** your apps with the bar at the top and an on-screen keyboard.
 - **Hide apps** you never use (**Menu** → *Hide*) and bring them back from the *Show hidden apps* tile. Non-system apps can also be uninstalled from the same menu.
+- **Home button switch**: press **Menu** on the *All apps* tile to turn the Home takeover on or off at any time. When it is off, Home shows Amazon's own screen and you reopen Quiet Launcher from your apps.
 - **Wraps around**: pressing right on the last tile goes back to the first.
 - **Brand colour** on the highlighted app.
 - **Follows the system language** (English and Italian included; add another with a `res/values-xx/strings.xml`), and the 12/24 h clock setting.

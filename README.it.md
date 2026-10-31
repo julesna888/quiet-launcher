@@ -34,6 +34,7 @@ Se la provi su un altro modello, apri una issue e racconta cosa succede.
 - **Ultima app usata**: quando torni alla home è già selezionata.
 - **Cerca** tra le tue app con la barra in alto e la tastiera su schermo.
 - **Nascondi le app** che non usi (**Menu** → *Nascondi*) e le ritrovi nel riquadro *Mostra app nascoste*. Dallo stesso menu si possono anche disinstallare quelle non di sistema.
+- **Interruttore del tasto Home**: premi **Menu** sul riquadro *Tutte le app* per attivare o disattivare in qualsiasi momento il passaggio automatico. Da spento, Home mostra la schermata di Amazon e riapri Quiet Launcher dalle tue app.
 - **Scorrimento circolare**: premendo destra sull'ultimo riquadro si torna al primo.
 - **Colore del brand** sull'app evidenziata.
 - **Segue la lingua di sistema** (inglese e italiano inclusi; per aggiungerne una basta un `res/values-xx/strings.xml`) e il formato 12/24 ore.

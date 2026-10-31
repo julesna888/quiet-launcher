@@ -10,6 +10,7 @@ import android.view.accessibility.AccessibilityEvent;
  */
 public class HomeGuard extends AccessibilityService {
     @Override public void onAccessibilityEvent(AccessibilityEvent e) {
+        if (!getSharedPreferences("g", MODE_PRIVATE).getBoolean("guard", true)) return;   // interruttore dal menu del launcher
         CharSequence c = e.getClassName();
         if (c != null && c.toString().contains("HomeActivity"))
             startActivity(new Intent(this, MainActivity.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_SINGLE_TOP));
