@@ -38,7 +38,7 @@ Se la provi su un altro modello, apri una issue e racconta cosa succede.
 - **Colore del brand** sull'app evidenziata.
 - **Segue la lingua di sistema** (inglese e italiano inclusi; per aggiungerne una basta un `res/values-xx/strings.xml`) e il formato 12/24 ore.
 - **Screensaver** leggero dopo 5 minuti di inattività.
-- Un'unica `View` che disegna su `Canvas`: niente WebView, circa 190 KB, 30–60 MB di RAM.
+- Un'unica `View` che disegna su `Canvas`: niente WebView, circa 220 KB, 30–60 MB di RAM.
 
 ## Installare
 

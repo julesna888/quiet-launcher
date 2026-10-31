@@ -38,7 +38,7 @@ If you try it on another model, please open an issue with what you saw.
 - **Brand colour** on the highlighted app.
 - **Follows the system language** (English and Italian included; add another with a `res/values-xx/strings.xml`), and the 12/24 h clock setting.
 - **Light screensaver** after 5 minutes idle.
-- A single custom `View` drawing on a `Canvas`: no WebView, about 190 KB, roughly 30–60 MB of RAM.
+- A single custom `View` drawing on a `Canvas`: no WebView, about 220 KB, roughly 30–60 MB of RAM.
 
 ## Install
 
