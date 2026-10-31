@@ -121,9 +121,9 @@ public class LauncherView extends View {
     static final float[][] DRIFT = {{0, 0}, {190, 110}, {0, 0}, {-190, -110}, {0, 0}};
     final Drawable icGear, icDl, icGrid, icSearch;
     final SimpleDateFormat dateFmt;
-    final String[] hint, hintKb, hintSetup, greets;
+    final String[] hintGrid, hintGridQ, hintBar, hintHome, hintAll, hintDlg, hintKb, hintSetup, greets;
     final String[][] kbKeys = new String[3][];
-    final String sAll, sChoose, sChooseHint, sSearch, sNoApps, sDone, sOpening, sErrOpen, sErrUninstall, sUninstalled, sPickOne, sMaxFive, sSysTitle, sSysBody, sOk, sHide, sShow, sUninstall, sDlgBody, sShowHidden, sHideAgain, sHiddenToast, sUnhiddenToast, sGuardTitle, sGuardOn, sGuardOff, sTurnOff, sTurnOn, sGuardToastOn, sGuardToastOff;
+    final String sAll, sChoose, sChooseHint, sSearch, sNoApps, sDone, sOpening, sErrOpen, sErrUninstall, sUninstalled, sPickOne, sMaxFive, sSysTitle, sSysBody, sOk, sHide, sShow, sUninstall, sDlgBody, sShowHidden, sHideAgain, sHiddenToast, sUnhiddenToast, sGuardTitle, sGuardOn, sGuardOff, sTurnOff, sTurnOn, sGuardToastOn, sGuardToastOff, sGuardStatus;
     final App guardApp = new App();
     final java.util.HashSet<String> hidden = new java.util.HashSet<>();
     boolean showHidden, started;
@@ -144,7 +144,7 @@ public class LauncherView extends View {
         super(a);
         act = a;
         android.content.res.Resources res = a.getResources();
-        hint = res.getStringArray(R.array.hint); hintKb = res.getStringArray(R.array.hint_kb); hintSetup = res.getStringArray(R.array.hint_setup);
+        hintGrid = res.getStringArray(R.array.hint_grid); hintGridQ = res.getStringArray(R.array.hint_grid_q); hintBar = res.getStringArray(R.array.hint_bar); hintHome = res.getStringArray(R.array.hint_home); hintAll = res.getStringArray(R.array.hint_all); hintDlg = res.getStringArray(R.array.hint_dlg); hintKb = res.getStringArray(R.array.hint_kb); hintSetup = res.getStringArray(R.array.hint_setup);
         greets = new String[]{a.getString(R.string.greet_night), a.getString(R.string.greet_morning), a.getString(R.string.greet_afternoon), a.getString(R.string.greet_evening)};
         String[] sp = res.getStringArray(R.array.kb_special);
         for (int i = 0; i < 3; i++) kbKeys[i] = KB[i].clone();
@@ -157,7 +157,7 @@ public class LauncherView extends View {
         sHide = a.getString(R.string.hide); sShow = a.getString(R.string.show); sUninstall = a.getString(R.string.uninstall); sDlgBody = a.getString(R.string.dlg_body);
         sShowHidden = a.getString(R.string.show_hidden); sHideAgain = a.getString(R.string.hide_again); sHiddenToast = a.getString(R.string.hidden_toast); sUnhiddenToast = a.getString(R.string.unhidden_toast);
         sGuardTitle = a.getString(R.string.guard_title); sGuardOn = a.getString(R.string.guard_on); sGuardOff = a.getString(R.string.guard_off);
-        sTurnOff = a.getString(R.string.turn_off); sTurnOn = a.getString(R.string.turn_on); sGuardToastOn = a.getString(R.string.guard_toast_on); sGuardToastOff = a.getString(R.string.guard_toast_off);
+        sTurnOff = a.getString(R.string.turn_off); sTurnOn = a.getString(R.string.turn_on); sGuardToastOn = a.getString(R.string.guard_toast_on); sGuardToastOff = a.getString(R.string.guard_toast_off); sGuardStatus = a.getString(R.string.guard_status);
         guardApp.pkg = "guard"; guardApp.label = "";
         dateFmt = new SimpleDateFormat(android.text.format.DateFormat.getBestDateTimePattern(Locale.getDefault(), "EEEEdMMMM"), Locale.getDefault());
         pm = a.getPackageManager();
@@ -626,7 +626,7 @@ public class LauncherView extends View {
         if (ssOn) drawSs(c);
         else {
             int sc = fade < 1 ? c.saveLayerAlpha(0, 0, 1920, 1080, (int) (fade * 255)) : -1;
-            if (grid) drawGrid(c); else drawHome(c);
+            if (grid) drawGrid(c); else { drawHome(c); drawHint(c, idx == main.size() ? hintAll : hintHome); }
             if (sc >= 0) c.restoreToCount(sc);
             if (ovl > 0.01f) {
                 fill.setShader(null); fill.setColor(Color.argb((int) (153 * ovl), 0, 0, 0)); c.drawRect(0, 0, 1920, 1080, fill);
@@ -697,6 +697,7 @@ public class LauncherView extends View {
 
         txt(c, greet(), 112, 78, pHi, Paint.Align.LEFT);
         txt(c, clockStr, 1808, 58, pClock, Paint.Align.RIGHT);
+        if (!guardOn()) txt(c, String.format(sGuardStatus, (int) Math.max(1, (prefs.getLong("guardUntil", 0) - System.currentTimeMillis() + 59999) / 60000)), 112, 136, pHintN, Paint.Align.LEFT);
 
         if (sepX >= 0) { fill.setColor(0x38FFFFFF); r.set(off + sepX + 8, 500 - 36, off + sepX + 10, 500 + 36); c.drawRect(r, fill); }
         for (int k = 0; k < n; k++) {
@@ -811,7 +812,12 @@ public class LauncherView extends View {
         if (!setup && vis.isEmpty() && !query.isEmpty()) { pGnm.setAlpha(150); txt(c, sNoApps, 960, 360, pGnm, Paint.Align.CENTER); pGnm.setAlpha(255); }
         if (kb) drawKb(c);
         else if (!onBar) txt(c, j < vis.size() ? vis.get(j).label : extraText(), 960, 800, pGnm, Paint.Align.CENTER);
-        String[] seg = setup ? hintSetup : kb ? hintKb : hint;
+        drawHint(c, setup ? hintSetup : kb ? hintKb : onBar ? hintBar : !query.isEmpty() ? hintGridQ : hintGrid);
+    }
+
+    // segmenti alternati: tasto (grassetto), azione (normale)
+    void drawHint(Canvas c, String[] seg) {
+        if (dlg != null && seg != hintDlg) return;
         float tot = 0;
         for (int i = 0; i < seg.length; i++) tot += (i % 2 == 0 ? pHintB : pHintN).measureText(seg[i]);
         float hx = 960 - tot / 2;
@@ -851,6 +857,7 @@ public class LauncherView extends View {
         float top = (1080 - 359) / 2f;
         r.set(480, top, 1440, top + 359);
         shadowRect(c, r, 24, 0xFF1B1B20, 80, 40, .6f);
+        drawHint(c, hintDlg);
         boolean g = dlg == guardApp;
         txt(c, g ? sGuardTitle : dlg.system ? String.format(sSysTitle, dlg.label) : dlg.label, 544, top + 56, pDh, Paint.Align.LEFT);
         txt(c, g ? (guardOn() ? sGuardOn : String.format(sGuardOff, (int) Math.max(1, (prefs.getLong("guardUntil", 0) - System.currentTimeMillis() + 59999) / 60000))) : dlg.system ? sSysBody : sDlgBody, 544, top + 56 + 60 + 16, pDp, Paint.Align.LEFT);

@@ -35,7 +35,8 @@ If you try it on another model, please open an issue with what you saw.
 - **Last used app** is selected when you come back to the home.
 - **Search** your apps with the bar at the top and an on-screen keyboard.
 - **Hide apps** you never use (**Menu** → *Hide*) and bring them back from the *Show hidden apps* tile. Non-system apps can also be uninstalled from the same menu.
-- **Pause the Home takeover**: press **Menu** on the *All apps* tile and choose *Pause 10 min*. For 10 minutes the Home button shows Amazon's own screen (to change a system setting, say), then Quiet Launcher takes over again by itself. *Turn on now* ends the pause early.
+- **On-screen key hints**: a line at the bottom always tells you which button does what on the current screen.
+- **Pause the Home takeover**: press **Menu** on the *All apps* tile and choose *Pause 10 min*. For 10 minutes the Home button shows Amazon's own screen (to change a system setting, say), then Quiet Launcher takes over again by itself. *Turn on now* ends the pause early. While paused, the home screen shows "Amazon's home allowed · N min left".
 - **Wraps around**: pressing right on the last tile goes back to the first.
 - **Brand colour** on the highlighted app.
 - **Follows the system language** (English and Italian included; add another with a `res/values-xx/strings.xml`), and the 12/24 h clock setting.

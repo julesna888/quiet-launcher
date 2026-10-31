@@ -35,7 +35,8 @@ Se la provi su un altro modello, apri una issue e racconta cosa succede.
 - **Ultima app usata**: quando torni alla home è già selezionata.
 - **Cerca** tra le tue app con la barra in alto e la tastiera su schermo.
 - **Nascondi le app** che non usi (**Menu** → *Nascondi*) e le ritrovi nel riquadro *Mostra app nascoste*. Dallo stesso menu si possono anche disinstallare quelle non di sistema.
-- **Pausa del tasto Home**: premi **Menu** sul riquadro *Tutte le app* e scegli *Pausa 10 min*. Per 10 minuti Home mostra la schermata di Amazon (ad esempio per cambiare un'impostazione di sistema), poi Quiet Launcher riprende da solo il suo posto. *Riattiva ora* chiude la pausa prima.
+- **Suggerimenti dei tasti**: una riga in basso dice sempre quale tasto fa cosa nella schermata in cui sei.
+- **Pausa del tasto Home**: premi **Menu** sul riquadro *Tutte le app* e scegli *Pausa 10 min*. Per 10 minuti Home mostra la schermata di Amazon (ad esempio per cambiare un'impostazione di sistema), poi Quiet Launcher riprende da solo il suo posto. *Riattiva ora* chiude la pausa prima. Durante la pausa la home mostra "Home Amazon permessa · ancora N min".
 - **Scorrimento circolare**: premendo destra sull'ultimo riquadro si torna al primo.
 - **Colore del brand** sull'app evidenziata.
 - **Segue la lingua di sistema** (inglese e italiano inclusi; per aggiungerne una basta un `res/values-xx/strings.xml`) e il formato 12/24 ore.

@@ -38,9 +38,6 @@
     <string name="turn_on">Riattiva ora</string>
     <string name="guard_toast_on">Tasto Home: Quiet Launcher</string>
     <string name="guard_toast_off">Home Amazon permessa per 10 minuti</string>
-    <string-array name="hint">
-        <item>Indietro</item><item>" torna alla home  ·  "</item><item>Menu</item><item>" opzioni  ·  "</item><item>Play</item><item>" scegli le app"</item>
-    </string-array>
     <string-array name="hint_kb">
         <item>OK</item><item>" scrive  ·  "</item><item>Indietro</item><item>" chiude la tastiera"</item>
     </string-array>
@@ -50,4 +47,23 @@
     <string-array name="kb_special">
         <item>Spazio</item><item>Canc</item><item>Fatto</item>
     </string-array>
+    <string-array name="hint_home">
+        <item>OK</item><item>" apre  ·  "</item><item>Menu</item><item>" opzioni  ·  "</item><item>Play</item><item>" scegli le app"</item>
+    </string-array>
+    <string-array name="hint_all">
+        <item>OK</item><item>" tutte le app  ·  "</item><item>Menu</item><item>" pausa tasto Home  ·  "</item><item>Play</item><item>" scegli le app"</item>
+    </string-array>
+    <string-array name="hint_grid">
+        <item>OK</item><item>" apre  ·  "</item><item>Menu</item><item>" opzioni  ·  "</item><item>Indietro</item><item>" torna alla home"</item>
+    </string-array>
+    <string-array name="hint_grid_q">
+        <item>OK</item><item>" apre  ·  "</item><item>Menu</item><item>" opzioni  ·  "</item><item>Indietro</item><item>" cancella la ricerca"</item>
+    </string-array>
+    <string-array name="hint_bar">
+        <item>OK</item><item>" scrivi il nome  ·  "</item><item>Giù</item><item>" torna alle app  ·  "</item><item>Indietro</item><item>" torna indietro"</item>
+    </string-array>
+    <string-array name="hint_dlg">
+        <item>Sinistra / Destra</item><item>" scegli  ·  "</item><item>OK</item><item>" conferma  ·  "</item><item>Indietro</item><item>" annulla"</item>
+    </string-array>
+    <string name="guard_status">Home Amazon permessa · ancora %1$d min</string>
 </resources>

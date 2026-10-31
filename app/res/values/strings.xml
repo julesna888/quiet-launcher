@@ -38,9 +38,6 @@
     <string name="turn_on">Turn on now</string>
     <string name="guard_toast_on">Home button: Quiet Launcher</string>
     <string name="guard_toast_off">Amazon\'s home allowed for 10 minutes</string>
-    <string-array name="hint">
-        <item>Back</item><item>" returns home  ·  "</item><item>Menu</item><item>" options  ·  "</item><item>Play</item><item>" picks apps"</item>
-    </string-array>
     <string-array name="hint_kb">
         <item>OK</item><item>" types  ·  "</item><item>Back</item><item>" closes the keyboard"</item>
     </string-array>
@@ -50,4 +47,23 @@
     <string-array name="kb_special">
         <item>Space</item><item>Del</item><item>Done</item>
     </string-array>
+    <string-array name="hint_home">
+        <item>OK</item><item>" opens  ·  "</item><item>Menu</item><item>" options  ·  "</item><item>Play</item><item>" picks apps"</item>
+    </string-array>
+    <string-array name="hint_all">
+        <item>OK</item><item>" all apps  ·  "</item><item>Menu</item><item>" pause the Home button  ·  "</item><item>Play</item><item>" picks apps"</item>
+    </string-array>
+    <string-array name="hint_grid">
+        <item>OK</item><item>" opens  ·  "</item><item>Menu</item><item>" options  ·  "</item><item>Back</item><item>" returns home"</item>
+    </string-array>
+    <string-array name="hint_grid_q">
+        <item>OK</item><item>" opens  ·  "</item><item>Menu</item><item>" options  ·  "</item><item>Back</item><item>" clears the search"</item>
+    </string-array>
+    <string-array name="hint_bar">
+        <item>OK</item><item>" types a name  ·  "</item><item>Down</item><item>" back to the apps  ·  "</item><item>Back</item><item>" returns"</item>
+    </string-array>
+    <string-array name="hint_dlg">
+        <item>Left / Right</item><item>" choose  ·  "</item><item>OK</item><item>" confirm  ·  "</item><item>Back</item><item>" cancel"</item>
+    </string-array>
+    <string name="guard_status">Amazon\'s home allowed · %1$d min left</string>
 </resources>
