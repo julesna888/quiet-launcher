@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Quiet Launcher</string>
+    <string name="guard_desc">Brings the Home button back to this launcher.</string>
+    <string name="greet_night">Good night</string>
+    <string name="greet_morning">Good morning</string>
+    <string name="greet_afternoon">Good afternoon</string>
+    <string name="greet_evening">Good evening</string>
+    <string name="all_apps">All apps</string>
+    <string name="choose_apps">Choose your apps</string>
+    <string name="choose_hint">Up to 5, in the order you pick them</string>
+    <string name="search_hint">Search apps</string>
+    <string name="no_apps">No app found</string>
+    <string name="done_count">Done · %1$d/5</string>
+    <string name="done">Done</string>
+    <string name="settings">Settings</string>
+    <string name="opening">Opening %1$s…</string>
+    <string name="err_open">Can\'t open %1$s</string>
+    <string name="err_uninstall">Can\'t uninstall %1$s</string>
+    <string name="uninstalled">%1$s uninstalled</string>
+    <string name="pick_one">Pick at least one app</string>
+    <string name="max_five">Maximum 5 apps</string>
+    <string name="sys_title">%1$s is a system app</string>
+    <string name="sys_body">It is part of Fire TV and can\'t be uninstalled from here.</string>
+    <string name="ok">OK</string>
+    <string name="hide">Hide</string>
+    <string name="show">Show</string>
+    <string name="uninstall">Uninstall</string>
+    <string name="dlg_body">What do you want to do?</string>
+    <string name="show_hidden">Show hidden apps (%1$d)</string>
+    <string name="hide_again">Hide them again</string>
+    <string name="hidden_toast">%1$s hidden</string>
+    <string name="unhidden_toast">%1$s is visible again</string>
+    <string-array name="hint">
+        <item>Back</item><item>" returns home  ·  "</item><item>Menu</item><item>" options  ·  "</item><item>Play</item><item>" picks apps"</item>
+    </string-array>
+    <string-array name="hint_kb">
+        <item>OK</item><item>" types  ·  "</item><item>Back</item><item>" closes the keyboard"</item>
+    </string-array>
+    <string-array name="hint_setup">
+        <item>OK</item><item>" picks  ·  "</item><item>Done</item><item>" to confirm"</item>
+    </string-array>
+    <string-array name="kb_special">
+        <item>Space</item><item>Del</item><item>Done</item>
+    </string-array>
+</resources>

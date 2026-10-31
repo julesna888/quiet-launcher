@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Quiet Launcher</string>
+    <string name="guard_desc">Riporta il tasto Home su questo launcher.</string>
+    <string name="greet_night">Buonanotte</string>
+    <string name="greet_morning">Buongiorno</string>
+    <string name="greet_afternoon">Buon pomeriggio</string>
+    <string name="greet_evening">Buonasera</string>
+    <string name="all_apps">Tutte le app</string>
+    <string name="choose_apps">Scegli le tue app</string>
+    <string name="choose_hint">Fino a 5, nell\'ordine in cui le scegli</string>
+    <string name="search_hint">Cerca app</string>
+    <string name="no_apps">Nessuna app trovata</string>
+    <string name="done_count">Fatto · %1$d/5</string>
+    <string name="done">Fatto</string>
+    <string name="settings">Impostazioni</string>
+    <string name="opening">Apro %1$s…</string>
+    <string name="err_open">Impossibile aprire %1$s</string>
+    <string name="err_uninstall">Impossibile disinstallare %1$s</string>
+    <string name="uninstalled">%1$s disinstallata</string>
+    <string name="pick_one">Scegli almeno un\'app</string>
+    <string name="max_five">Massimo 5 app</string>
+    <string name="sys_title">%1$s è un\'app di sistema</string>
+    <string name="sys_body">Fa parte del Fire TV e non si può disinstallare da qui.</string>
+    <string name="ok">Ok</string>
+    <string name="hide">Nascondi</string>
+    <string name="show">Mostra</string>
+    <string name="uninstall">Disinstalla</string>
+    <string name="dlg_body">Cosa vuoi fare?</string>
+    <string name="show_hidden">Mostra app nascoste (%1$d)</string>
+    <string name="hide_again">Nascondile di nuovo</string>
+    <string name="hidden_toast">%1$s nascosta</string>
+    <string name="unhidden_toast">%1$s di nuovo visibile</string>
+    <string-array name="hint">
+        <item>Indietro</item><item>" torna alla home  ·  "</item><item>Menu</item><item>" opzioni  ·  "</item><item>Play</item><item>" scegli le app"</item>
+    </string-array>
+    <string-array name="hint_kb">
+        <item>OK</item><item>" scrive  ·  "</item><item>Indietro</item><item>" chiude la tastiera"</item>
+    </string-array>
+    <string-array name="hint_setup">
+        <item>OK</item><item>" scegli  ·  "</item><item>Fatto</item><item>" per confermare"</item>
+    </string-array>
+    <string-array name="kb_special">
+        <item>Spazio</item><item>Canc</item><item>Fatto</item>
+    </string-array>
+</resources>

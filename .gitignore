@@ -1,0 +1,8 @@
+app/out/
+app/assets/logos/*.png
+logos-src/
+*.keystore
+*.jks
+local.properties
+.DS_Store
+.tmp-logos/
