@@ -7,7 +7,7 @@ BT="$ANDROID_HOME/build-tools/${BUILD_TOOLS:-34.0.0}"; AJ="$ANDROID_HOME/platfor
 KS="${KEYSTORE:-out/debug.keystore}"; KPASS="${KEYSTORE_PASS:-android}"
 mkdir -p out/classes out/gen; rm -f out/*.apk out/*.zip out/*.dex
 "$BT/aapt2" compile --dir res -o out/res.zip
-"$BT/aapt2" link -o out/base.apk -I "$AJ" --manifest AndroidManifest.xml -A assets out/res.zip --java out/gen --min-sdk-version 21 --target-sdk-version 28 --version-code 1 --version-name 1.0
+"$BT/aapt2" link -o out/base.apk -I "$AJ" --manifest AndroidManifest.xml -A assets out/res.zip --java out/gen --min-sdk-version 21 --target-sdk-version 28 --version-code 2 --version-name 1.1
 "$JAVA_HOME/bin/javac" --release 8 -Xlint:-options -cp "$AJ" -d out/classes out/gen/app/quiet/launcher/R.java src/app/quiet/launcher/*.java
 "$BT/d8" --lib "$AJ" --release --min-api 21 --output out $(find out/classes -name '*.class')
 (cd out && zip -q -j base.apk classes.dex)

@@ -454,7 +454,7 @@ public class LauncherView extends View {
         catch (Exception e) { busy = false; fadeOvl(0); showToast(String.format(sErrOpen, a.label)); }
     }
 
-    boolean guardOn() { return prefs.getBoolean("guard", true); }
+    boolean guardOn() { return prefs.getLong("guardUntil", 0) <= System.currentTimeMillis(); }
 
     void askRemove() {
         App a = !grid && idx == main.size() ? guardApp : current();
@@ -465,7 +465,7 @@ public class LauncherView extends View {
     void dlgExec() {
         App a = dlg; dlg = null;
         if (a == guardApp) {
-            if (dlgSel == 0) { boolean on = !guardOn(); prefs.edit().putBoolean("guard", on).apply(); showToast(on ? sGuardToastOn : sGuardToastOff); }
+            if (dlgSel == 0) { boolean on = !guardOn(); prefs.edit().putLong("guardUntil", on ? 0 : System.currentTimeMillis() + 600000).apply(); showToast(on ? sGuardToastOn : sGuardToastOff); }
             invalidate(); return;
         }
         if (dlgSel == 0) {
@@ -853,7 +853,7 @@ public class LauncherView extends View {
         shadowRect(c, r, 24, 0xFF1B1B20, 80, 40, .6f);
         boolean g = dlg == guardApp;
         txt(c, g ? sGuardTitle : dlg.system ? String.format(sSysTitle, dlg.label) : dlg.label, 544, top + 56, pDh, Paint.Align.LEFT);
-        txt(c, g ? (guardOn() ? sGuardOn : sGuardOff) : dlg.system ? sSysBody : sDlgBody, 544, top + 56 + 60 + 16, pDp, Paint.Align.LEFT);
+        txt(c, g ? (guardOn() ? sGuardOn : String.format(sGuardOff, (int) Math.max(1, (prefs.getLong("guardUntil", 0) - System.currentTimeMillis() + 59999) / 60000))) : dlg.system ? sSysBody : sDlgBody, 544, top + 56 + 60 + 16, pDp, Paint.Align.LEFT);
         String[] lb = g ? new String[]{guardOn() ? sTurnOff : sTurnOn, sOk} : new String[]{hidden.contains(dlg.pkg) ? sShow : sHide, dlg.system ? sOk : sUninstall};
         for (int i = 0; i < 2; i++) {
             RectF b = btn; b.set(544 + i * 432, top + 359 - 48 - 88, 944 + i * 432, top + 359 - 48);

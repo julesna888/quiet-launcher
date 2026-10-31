@@ -24,6 +24,7 @@ Quel Stick è molto chiuso (bootloader bloccato, niente root, pacchetti Amazon p
 - **Premendo Home si vede la home di Amazon per circa 5 secondi** prima che Quiet Launcher la sostituisca. Un piccolo servizio di accessibilità (`HomeGuard`) si accorge che compare la home di Amazon e riporta in primo piano Quiet Launcher. Questo ritardo è un limite noto di questo firmware, non un difetto che si può eliminare.
 - **Le app si aprono veloci quanto sono veloci da sole** (circa un secondo a freddo su questo Stick, che ha meno di 1 GB di RAM). Il launcher non le rende più rapide.
 - Le app di sistema Amazon non si possono disinstallare da qui; si possono solo nascondere dalla griglia.
+- **Nella schermata *Applicazioni e giochi* di Amazon, Quiet Launcher compare con una tessera Android generica invece del suo banner.** Il banner si carica correttamente nell'app; Fire OS semplicemente non lo usa lì. È solo estetico e non abbiamo trovato una soluzione.
 
 Se la provi su un altro modello, apri una issue e racconta cosa succede.
 
@@ -34,7 +35,7 @@ Se la provi su un altro modello, apri una issue e racconta cosa succede.
 - **Ultima app usata**: quando torni alla home è già selezionata.
 - **Cerca** tra le tue app con la barra in alto e la tastiera su schermo.
 - **Nascondi le app** che non usi (**Menu** → *Nascondi*) e le ritrovi nel riquadro *Mostra app nascoste*. Dallo stesso menu si possono anche disinstallare quelle non di sistema.
-- **Interruttore del tasto Home**: premi **Menu** sul riquadro *Tutte le app* per attivare o disattivare in qualsiasi momento il passaggio automatico. Da spento, Home mostra la schermata di Amazon e riapri Quiet Launcher dalle tue app.
+- **Pausa del tasto Home**: premi **Menu** sul riquadro *Tutte le app* e scegli *Pausa 10 min*. Per 10 minuti Home mostra la schermata di Amazon (ad esempio per cambiare un'impostazione di sistema), poi Quiet Launcher riprende da solo il suo posto. *Riattiva ora* chiude la pausa prima.
 - **Scorrimento circolare**: premendo destra sull'ultimo riquadro si torna al primo.
 - **Colore del brand** sull'app evidenziata.
 - **Segue la lingua di sistema** (inglese e italiano inclusi; per aggiungerne una basta un `res/values-xx/strings.xml`) e il formato 12/24 ore.

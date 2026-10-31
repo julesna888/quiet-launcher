@@ -24,6 +24,7 @@ That Stick is heavily locked down (locked bootloader, no root, Amazon's own pack
 - **Pressing Home shows Amazon's home for about 5 seconds** before Quiet Launcher takes over. A small accessibility service (`HomeGuard`) notices Amazon's home appear and brings Quiet Launcher back. That delay is a known limit, not a bug that can be tuned away on this firmware.
 - **Opening an app is as fast as the app itself** (about a second cold on this Stick, which has under 1 GB of RAM). The launcher does not speed apps up.
 - Amazon's system apps cannot be uninstalled from here; you can only hide them from the grid.
+- **In Amazon's own *Apps & Games* screen Quiet Launcher shows a generic Android tile instead of its banner.** The banner loads fine inside the app; Fire OS just doesn't use it there. Purely cosmetic, and we could not find a fix.
 
 If you try it on another model, please open an issue with what you saw.
 
@@ -34,7 +35,7 @@ If you try it on another model, please open an issue with what you saw.
 - **Last used app** is selected when you come back to the home.
 - **Search** your apps with the bar at the top and an on-screen keyboard.
 - **Hide apps** you never use (**Menu** → *Hide*) and bring them back from the *Show hidden apps* tile. Non-system apps can also be uninstalled from the same menu.
-- **Home button switch**: press **Menu** on the *All apps* tile to turn the Home takeover on or off at any time. When it is off, Home shows Amazon's own screen and you reopen Quiet Launcher from your apps.
+- **Pause the Home takeover**: press **Menu** on the *All apps* tile and choose *Pause 10 min*. For 10 minutes the Home button shows Amazon's own screen (to change a system setting, say), then Quiet Launcher takes over again by itself. *Turn on now* ends the pause early.
 - **Wraps around**: pressing right on the last tile goes back to the first.
 - **Brand colour** on the highlighted app.
 - **Follows the system language** (English and Italian included; add another with a `res/values-xx/strings.xml`), and the 12/24 h clock setting.
