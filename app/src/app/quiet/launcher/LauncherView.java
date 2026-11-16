@@ -466,7 +466,12 @@ public class LauncherView extends View {
     void dlgExec() {
         App a = dlg; dlg = null;
         if (a == guardApp) {
-            if (dlgSel == 0) { boolean on = !guardOn(); prefs.edit().putLong("guardUntil", on ? 0 : System.currentTimeMillis() + 600000).apply(); showToast(on ? sGuardToastOn : sGuardToastOff); }
+            if (dlgSel == 0) {
+                boolean on = !guardOn(); prefs.edit().putLong("guardUntil", on ? 0 : System.currentTimeMillis() + 600000).commit(); showToast(on ? sGuardToastOn : sGuardToastOff);
+                if (!on) try {   // in pausa: apri subito la home Amazon
+                    act.startActivity(new Intent(Intent.ACTION_MAIN).addCategory(Intent.CATEGORY_HOME).setPackage("com.amazon.tv.launcher").addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
+                } catch (Exception e) { }
+            }
             invalidate(); return;
         }
         if (dlgSel == 0) {
