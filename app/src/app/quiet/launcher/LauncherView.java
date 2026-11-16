@@ -197,7 +197,8 @@ public class LauncherView extends View {
     static Paint tp(Typeface tf, int px, int w, int color) {
         Paint p = new Paint(Paint.ANTI_ALIAS_FLAG | Paint.SUBPIXEL_TEXT_FLAG);
         p.setTypeface(tf); p.setTextSize(px); p.setColor(color);
-        p.setFontVariationSettings("'wght' " + w);
+        if (android.os.Build.VERSION.SDK_INT >= 26) p.setFontVariationSettings("'wght' " + w);
+        else if (w >= 600) p.setFakeBoldText(true); // Fire OS 6 (API 25): niente assi dei font variabili
         return p;
     }
 
