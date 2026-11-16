@@ -197,7 +197,8 @@ public class LauncherView extends View {
     static Paint tp(Typeface tf, int px, int w, int color) {
         Paint p = new Paint(Paint.ANTI_ALIAS_FLAG | Paint.SUBPIXEL_TEXT_FLAG);
         p.setTypeface(tf); p.setTextSize(px); p.setColor(color);
-        p.setFontVariationSettings("'wght' " + w);
+        if (android.os.Build.VERSION.SDK_INT >= 26) p.setFontVariationSettings("'wght' " + w);
+        else if (w >= 600) p.setFakeBoldText(true); // Fire OS 6 (API 25): niente assi dei font variabili
         return p;
     }
 
@@ -465,7 +466,12 @@ public class LauncherView extends View {
     void dlgExec() {
         App a = dlg; dlg = null;
         if (a == guardApp) {
-            if (dlgSel == 0) { boolean on = !guardOn(); prefs.edit().putLong("guardUntil", on ? 0 : System.currentTimeMillis() + 600000).apply(); showToast(on ? sGuardToastOn : sGuardToastOff); }
+            if (dlgSel == 0) {
+                boolean on = !guardOn(); prefs.edit().putLong("guardUntil", on ? 0 : System.currentTimeMillis() + 600000).commit(); showToast(on ? sGuardToastOn : sGuardToastOff);
+                if (!on) try {   // in pausa: apri subito la home Amazon
+                    act.startActivity(new Intent(Intent.ACTION_MAIN).addCategory(Intent.CATEGORY_HOME).setPackage("com.amazon.tv.launcher").addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
+                } catch (Exception e) { }
+            }
             invalidate(); return;
         }
         if (dlgSel == 0) {

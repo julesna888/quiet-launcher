@@ -1,9 +1,9 @@
 #!/bin/sh
-# Compila e firma l'APK. Servono: JDK 17+, ANDROID_HOME con platforms;android-28 e build-tools;34.0.0 (o BUILD_TOOLS=<versione>).
+# Compila e firma l'APK. Servono: JDK 17+, ANDROID_HOME con platforms;android-28 (o PLATFORM=android-<n>, il target resta 28) e build-tools;34.0.0 (o BUILD_TOOLS=<versione>).
 set -e
 cd "$(dirname "$0")"
 : "${JAVA_HOME:?imposta JAVA_HOME (JDK 17+)}"; : "${ANDROID_HOME:?imposta ANDROID_HOME}"
-BT="$ANDROID_HOME/build-tools/${BUILD_TOOLS:-34.0.0}"; AJ="$ANDROID_HOME/platforms/android-28/android.jar"
+BT="$ANDROID_HOME/build-tools/${BUILD_TOOLS:-34.0.0}"; AJ="$ANDROID_HOME/platforms/${PLATFORM:-android-28}/android.jar"
 KS="${KEYSTORE:-out/debug.keystore}"; KPASS="${KEYSTORE_PASS:-android}"
 mkdir -p out/classes out/gen; rm -f out/*.apk out/*.zip out/*.dex
 "$BT/aapt2" compile --dir res -o out/res.zip
