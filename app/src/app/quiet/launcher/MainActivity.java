@@ -24,6 +24,7 @@ public class MainActivity extends Activity {
         f.addAction(Intent.ACTION_PACKAGE_REPLACED);
         f.addDataScheme("package");
         registerReceiver(pkgs, f);
+        HomeWatch.start(this);
         if (getIntent().hasExtra("ss")) v.post(new Runnable() { public void run() { v.startSs(); } });
     }
 
